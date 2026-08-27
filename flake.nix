@@ -1,0 +1,39 @@
+{
+  inputs = {
+    nixpkgs.follows = "nixpkgs-2511";
+    nixpkgs-2511.url = "github:nixos/nixpkgs/e820eb4a444b46a19b2e03e8dfd2359439ff30fe"; # See https://channels.nixos.org/
+    nixpkgs-2605.url = "github:nixos/nixpkgs/a0374025a863d007d98e3297f6aa46cc3141c2f0"; # See https://channels.nixos.org/
+    nixpkgs-2611.url = "github:nixos/nixpkgs/e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3"; # See https://channels.nixos.org/
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    functional_blocklist = {
+      url = "https://big.oisd.nl/domainswild2";
+      flake = false;
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = inputs: (inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+    systems = ["x86_64-linux" "aarch64-linux"];
+    imports = [../.];
+  });
+}
