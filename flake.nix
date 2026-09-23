@@ -1,9 +1,8 @@
 {
   inputs = {
     nixpkgs.follows = "nixpkgs-2511";
-    nixpkgs-2511.url = "github:nixos/nixpkgs/e820eb4a444b46a19b2e03e8dfd2359439ff30fe"; # See https://channels.nixos.org/
-    nixpkgs-2605.url = "github:nixos/nixpkgs/a0374025a863d007d98e3297f6aa46cc3141c2f0"; # See https://channels.nixos.org/
-    nixpkgs-2611.url = "github:nixos/nixpkgs/e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3"; # See https://channels.nixos.org/
+    nixpkgs-2511.url = "github:nixos/nixpkgs/e820eb4a444b46a19b2e03e8dfd2359439ff30fe"; # See https://channels.nixos.org/nixos-25.11
+    nixpkgs-2605.url = "github:nixos/nixpkgs/6d663c0533ff269008fb84e45930151e37c99db9"; # See https://channels.nixos.org/nixos-26.05
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
