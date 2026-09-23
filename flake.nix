@@ -36,6 +36,10 @@
         home-manager.follows = "home-manager";
       };
     };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: (inputs.flake-parts.lib.mkFlake {inherit inputs;} {
